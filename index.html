@@ -1,11 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous'>
+    <title>D&D Initiative Tracker</title>
 </head>
 <body>
-    
+    <header class="navbar navbar-dark bg-dark">
+        <span class="navbar-brand mb-0 h1 w-100 text-center">Dungeons & Dragons Initiative Tracker</span>
+    </header>
+    <div class='container'>
+        <div class='row'>
+            <div class='col-6'>
+                <h1>PLAYERS</h1>
+                <button>Add Player</button>
+            </div>
+            <div class='col-6' id='monsters'>
+                <h1>MONSTERS</h1>
+                <input id="monster-input" type="text" class="form-control" placeholder="Enter Monster Name" aria-label="Enter Monster Name">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button" id="search-button">
+                            Add Monster
+                        </button>
+            </div>
+        </div>
+    </div>    
+    <script src='https://unpkg.com/axios/dist/axios.min.js'></script>
+    <script src='./assets/js/homepage.js'></script>
 </body>
 </html>
