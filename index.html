@@ -12,20 +12,22 @@
     </header>
     <div class='container'>
         <div class='row'>
-            <div class='col-6'>
+            <div class='col-6 align-center'>
                 <h1>PLAYERS</h1>
                 <button>Add Player</button>
             </div>
-            <div class='col-6' id='monsters'>
+            <div class='col-6' id='monster-container'>
                 <h1>MONSTERS</h1>
                 <input id="monster-input" type="text" class="form-control" placeholder="Enter Monster Name" aria-label="Enter Monster Name">
                     <div class="input-group-append">
                         <button class="btn btn-primary" type="button" id="search-button">
                             Add Monster
                         </button>
+                    </div>
+                </input>    
             </div>
         </div>
-    </div>    
+    </div>        
     <script src='https://unpkg.com/axios/dist/axios.min.js'></script>
     <script src='./assets/js/homepage.js'></script>
 </body>
