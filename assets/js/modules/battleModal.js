@@ -1,0 +1,2 @@
+
+var makeAModal = $("#startBtn").click("")
