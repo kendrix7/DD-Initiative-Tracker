@@ -1,19 +1,16 @@
-
-
+// generates content for the modal
 var modalHandler = function (playerEl) {
-    var playerContainerEl = $("#playerList-container")
-    var playerList = playerContainerEl.find(".playerName") || [];
+    var playerContainerEl = $("#monsterList-container") // #monsterList-container needs to be switched to player
+    var playerList = playerContainerEl.find(".monsterName") || []; // .monsterName needs to be switched to player name
     console.log(playerList);
     
-    
+    // takes each player entered and makes their name into a button in the modal
     playerList.each(function() {
         var playerName = $(this).text().split(":")[1].trim();
-        debugger;
-        var modalButtonEl = $("<a>").addClass("waves-effect waves-light btn player").text(playerName);
+        var modalButtonEl = $("<a>").addClass("waves-effect waves-light btn").text(playerName);
         var modalContentEl = $(".modal-content");
-        modalContentEl.append(modalButtonEl);
+        modalContentEl.append(modalButtonEl); // buttons don't generate with spacing... idk why.
     });
-
 }
 
 export { modalHandler }
