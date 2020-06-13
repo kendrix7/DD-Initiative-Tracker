@@ -3,20 +3,20 @@
 <head>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <title>D&D Initiative Tracker</title>
 </head>
 <body>
     <header class="navbar navbar-dark bg-dark">
         <span class="navbar-brand mb-0 h1 w-100 text-center">Dungeons & Dragons Initiative Tracker</span>
     </header>
-    <div class='container'>
+    <div class='container' id="container">
         <div class='row'>
             <div class='col-6 align-center'>
                 <h1>PLAYERS</h1>
-                <button>Add Player</button>
+                <button id="addPlayerBtn">Add Player</button>
             </div>
-            <div class='col-6' id='monster-container'>
+            <div class='col-6' id='monsterList-container'>
                 <h1>MONSTERS</h1>
                 <input id="monster-input" type="text" class="form-control" placeholder="Enter Monster Name" aria-label="Enter Monster Name">
                     <div class="input-group-append">
@@ -29,20 +29,22 @@
         </div>
     </div> 
 
-    <p><button class="button" data-open="exampleModal1" aria-controls="exampleModal1" aria-haspopup="true" tabindex="0">Click me for a modal</button></p>
+    <button data-target="modal1" class="btn modal-trigger" id="startBtn">Modal</button>
 
-    <div class="reveal" id="exampleModal1" data-reveal>
-        <h1>Awesome. I Have It.</h1>
-        <p class="lead">Your couch. It is mine.</p>
-        <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
-        <button class="close-button" data-close aria-label="Close reveal" type="button">
-            <span aria-hidden="true">&times;</span>
-        </button>
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4>Roll Initiative</h4>
+            <p>Which Monster goes first?</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Start Battle!</a>
+        </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src='https://unpkg.com/axios/dist/axios.min.js'></script>
-    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js" integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
-    <script src='./assets/js/homepage.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./assets/js/homepage.js" type="module"></script>
+    <script src="./assets/js/modules/battleModal.js" type="module"></script>
 </body>
 </html>

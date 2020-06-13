@@ -1,8 +1,9 @@
+import { modalHandler } from "./modules/battleModal.js";
 
 var searchEl = document.getElementById('search-button');
 var searchHistory = JSON.parse(localStorage.getItem('monster')) || [];
 var inputEl = document.getElementById('monster-input');
-var monsterContainerEl = document.getElementById('monster-container')
+var monsterContainerEl = document.getElementById('monsterList-container')
 
 //initialize search for given city name
 searchEl.addEventListener('click',function() {
@@ -22,12 +23,21 @@ function getMonster(name) {
 
         var monsterName = document.createElement('li');
         monsterName.innerText = 'Name: ' + response.data.name;
+        monsterName.setAttribute("class", "monsterName");
         monsterEl.appendChild(monsterName);
 
         var monsterHP = document.createElement('li');
         monsterHP.innerText = 'HP: ' + response.data.hit_points;
+        monsterHP.setAttribute("id", "monsterHP");
         monsterEl.appendChild(monsterHP);
 
         monsterContainerEl.appendChild(monsterEl);
     });
-}   
+}
+$(document).ready(function(){
+    $('.modal').modal();
+});
+
+$("#startBtn").click(function () {
+    modalHandler($(this).html())
+});
