@@ -1,8 +1,7 @@
-<<<<<<< HEAD
 $(function () {
     $('[data-toggle="popover"]').popover()
 })
-=======
+
 var searchEl = document.getElementById('search-button');
 var searchHistory = JSON.parse(localStorage.getItem('monster')) || [];
 var inputEl = document.getElementById('monster-input');
@@ -35,4 +34,3 @@ function getMonster(name) {
         monsterContainerEl.appendChild(monsterEl);
     });
 }   
->>>>>>> 559e7614d4fe28e2ea988eea5a52ac4f12ed1348
