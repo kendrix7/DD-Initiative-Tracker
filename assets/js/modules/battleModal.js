@@ -12,5 +12,20 @@ var modalHandler = function (playerEl) {
     });
 }
 
+// on click of buttons in modal removes that button and formats <p> in .modal-content
+var initiativeHandler = function(buttonEl) {
+    // remove button clicked, save to list
+    var initiativeList = [];
+    initiativeList.push(buttonEl.text()); // saving modal button for now, will need to be player and monster tags in the future
+    buttonEl.remove();
 
-export { modalHandler }
+    // reformat <p> in .modal-content
+    var modalContent = $(".modal-content").children().eq(1).text().trim();
+    modalContent = modalContent.split(" ")
+    modalContent.pop()
+    modalContent = modalContent.join(" ");
+    modalContent = `${modalContent} next?`;
+    $(".modal-content p").text(modalContent);
+}
+
+export { modalHandler, initiativeHandler }

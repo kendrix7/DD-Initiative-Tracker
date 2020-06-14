@@ -1,18 +1,24 @@
-import { modalHandler } from "./modules/battleModal.js";
-import { initiativeHandler } from "./modules/initiativeHandler.js"
+import { modalHandler, initiativeHandler } from "./modules/battleModal.js";
 
 var searchEl = document.getElementById('search-button');
 var searchHistory = JSON.parse(localStorage.getItem('monster')) || [];
 var inputEl = document.getElementById('monster-input');
 var monsterContainerEl = document.getElementById('monsterList-container')    
 var queryURL = 'https://www.dnd5eapi.co/api/monsters/';
-
+if (!searchHistory.length) {
+    var id = 0;
+}
+else {
+    var id = searchHistory[searchHistory.length - 1].id; // set id to last id saved
+}
 
 //initialize search for given monster name
 searchEl.addEventListener('click',function() {
+    id++
     var searchTerm = inputEl.value;
     getMonster(searchTerm);
-    searchHistory.push(searchTerm);
+    var searchTermObj = {"id": id, "name": searchTerm} // save an id with the name for persistency
+    searchHistory.push(searchTermObj);
     localStorage.setItem('monster',JSON.stringify(searchHistory));
 });
 
