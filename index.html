@@ -3,7 +3,8 @@
 <head>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">    <title>D&D Initiative Tracker</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">    
+    <title>D&D Initiative Tracker</title>
 </head>
 <body>
     <header class="nav-wrapper">
@@ -14,16 +15,7 @@
             <div class='col s6 align-center'>
                 <h1>PLAYERS</h1>
                 <button>Add Player</button>
-            </div>
-            <div class='col s6' id='monster-container'>
-                <h1>MONSTERS</h1>
-                <input id="monster-input" type="text" class="form-control" placeholder="Enter Monster Name" aria-label="Enter Monster Name">
-                    <div class="input-group-append">
-                        <button class="btn btn-primary" type="button" id="search-button">
-                            Add Monster
-                        </button>
-                    </div>
-                </input> 
+                <!-- Example Card -->
                 <main>
                     <section>
                         <article>
@@ -40,13 +32,34 @@
                                 
                               </div>
                         </article>
-                    </section>   
+                    </section>
+            </div>
+            <div class='col s6' id='monsterList-container'>
+                <h1>MONSTERS</h1>
+                <input id="monster-input" type="text" class="form-control" placeholder="Enter Monster Name" aria-label="Enter Monster Name">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button" id="search-button">
+                            Add Monster
+                        </button>
+                    </div>
+                </input> 
+                   
             </div>
         </div>
-    </div> 
+    </div>
+    <button data-target="modal1" class="btn modal-trigger" id="startBtn">Modal</button>
 
-    <button> Start Battle!</button>  
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>  
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4>Roll Initiative</h4>
+            <p>Which player goes first?</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Start Battle!</a>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>   
     <script src='https://unpkg.com/axios/dist/axios.min.js'></script>
     <script src='./assets/js/homepage.js'></script>
