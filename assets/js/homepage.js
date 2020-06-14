@@ -66,8 +66,7 @@ $(document).ready(function(){
 
 $("#startBtn").click(function () {
     modalHandler($(this).html())
+    $(".modalButton").click(function () {
+        initiativeHandler($(this));
+    });
 });
-
-$(".modalButton").click(function () {
-    initiativeHandler($(this));
-})
