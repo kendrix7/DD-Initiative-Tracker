@@ -28,6 +28,7 @@ function getMonster(name) {
         var monsterCardEl = document.createElement ('div');
         monsterCardEl.classList = ('card');
         monsterCardEl.setAttribute ('id', 'monster-container');
+        monsterCardEl.dataset.id = id
 
         var monsterContent = document.createElement ('div');
         monsterContent.classList = ('card-content');
