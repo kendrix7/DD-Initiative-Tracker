@@ -52,9 +52,15 @@
                 // hpAnchor.innerText = response.data.hit_points;
                 // hpContent.appendChild(hpAnchor);
 
-                var monsterStats = document.createElement('button');
+                var monsterStats = document.createElement('a');
+                monsterStats.classList = ('tooltipped btn');
+                // monsterHP.setAttribute ('href','#');
+                monsterStats.setAttribute('data-position', 'right');
+                monsterStats.setAttribute('data-tooltip', 'STR: ' + response.data.strength +' | ' + 'DEX: ' + response.data.dexterity +' | ' + 'INT: ' + response.data.intelligence+' | ' + 'WIS: ' + response.data.wisdom+' | ' + 'CON: ' + response.data.constitution+' | ' + 'CHA: ' + response.data.charisma);
                 monsterStats.innerText = 'STATS';
                 monsterCardEl.appendChild(monsterStats);
+
+                M.Tooltip.init(monsterStats);
 
                 monsterContainerEl.appendChild(monsterCardEl);
             });
