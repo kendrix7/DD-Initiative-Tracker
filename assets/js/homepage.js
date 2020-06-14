@@ -1,14 +1,11 @@
 import { modalHandler } from "./modules/battleModal.js";
+import { initiativeHandler } from "./modules/initiativeHandler.js"
 
 var searchEl = document.getElementById('search-button');
 var searchHistory = JSON.parse(localStorage.getItem('monster')) || [];
 var inputEl = document.getElementById('monster-input');
-<<<<<<< HEAD
-var monsterContainerEl = document.getElementById('monsterList-container')
-=======
-var monsterContainerEl = document.getElementById('monster-container')    
+var monsterContainerEl = document.getElementById('monsterList-container')    
 var queryURL = 'https://www.dnd5eapi.co/api/monsters/';
->>>>>>> 37136f1ca76a9cf45fdfb52301bdc6a93cb53c03
 
 
 //initialize search for given monster name
@@ -33,15 +30,6 @@ function getMonster(name) {
         var monsterName = document.createElement('p');
         monsterName.classList = ('card-title');
         monsterName.innerText = 'Name: ' + response.data.name;
-<<<<<<< HEAD
-        monsterName.setAttribute("class", "monsterName");
-        monsterEl.appendChild(monsterName);
-
-        var monsterHP = document.createElement('li');
-        monsterHP.innerText = 'HP: ' + response.data.hit_points;
-        monsterHP.setAttribute("id", "monsterHP");
-        monsterEl.appendChild(monsterHP);
-=======
         monsterCardEl.appendChild(monsterName);
 
         var monsterHP = document.createElement('a');
@@ -64,7 +52,6 @@ function getMonster(name) {
         hpAnchor.setAttribute ('href', '#');
         hpAnchor.innerText = response.data.hit_points;
         hpContent.appendChild(hpAnchor);
->>>>>>> 37136f1ca76a9cf45fdfb52301bdc6a93cb53c03
 
         var monsterStats = document.createElement('button');
         monsterStats.innerText = 'STATS';
@@ -72,7 +59,6 @@ function getMonster(name) {
 
         monsterContainerEl.appendChild(monsterCardEl);
     });
-<<<<<<< HEAD
 }
 $(document).ready(function(){
     $('.modal').modal();
@@ -81,9 +67,7 @@ $(document).ready(function(){
 $("#startBtn").click(function () {
     modalHandler($(this).html())
 });
-=======
-} 
 
-
-
->>>>>>> 37136f1ca76a9cf45fdfb52301bdc6a93cb53c03
+$(".modalButton").click(function () {
+    initiativeHandler($(this));
+})
