@@ -145,3 +145,7 @@
     $("#startBtn").click(function () {
         modalHandler($(this).html())
     });
+
+    $(document).ready(function(){
+        $('.tabs').tabs();
+      });
