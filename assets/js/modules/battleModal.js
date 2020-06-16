@@ -1,12 +1,23 @@
 // generates content for the modal
-var modalHandler = function (playerEl) {
+var modalHandler = function () {
     var playerContainerEl = $("#monsterList-container") // #monsterList-container needs to be switched to player
-    var playerList = playerContainerEl.find(".card-title") || []; // .monsterName needs to be switched to player name
-
+    var playerList = playerContainerEl.find(".monster-container") || []; // .monsterName needs to be switched to player name
+    console.log(playerList);
+    
     // takes each player entered and makes their name into a button in the modal
     playerList.each(function() {
-        var playerName = $(this).text().split(":")[1].trim();
-        var modalButtonEl = $("<a>").addClass("waves-effect waves-light btn modalButton").text(playerName);
+        //var i = 0;
+        var playerName = $(this).find(".card-title").text().split(":")[1].trim();
+        //var monsterContainerList = $("#monsterList-container").find("#monster-container")
+        //monsterContainerList.each(function() {
+            //monsterContainerId = $(this).attr("data-id")
+        //})
+        var monsterId = $(this).attr("data-id")
+        var modalButtonEl = $("<a>")
+            .addClass("waves-effect waves-light btn modalButton")
+            .text(playerName)
+            .attr("data-id", monsterId);
+
         var modalContentEl = $(".modal-content");
         modalContentEl.append(modalButtonEl); // buttons don't generate with spacing... idk why.
     });
@@ -16,12 +27,21 @@ var modalHandler = function (playerEl) {
 var initiativeHandler = function(buttonEl) {
     // remove button clicked, save to list
     var searchHistory = JSON.parse(localStorage.getItem("monster")) || [];
-    var orderNum = 0;
-    monster = searchHistory.find(function(i) {
-        i.id === buttonEl.dataset.id;
-    })
-    monster.orderNum = orderNum;
-    searchHistory.push(monster);
+    if (!searchHistory.length) {
+        var id = 0;
+    }
+    else {
+        var id = searchHistory[searchHistory.length - 1].id; // set id to last id saved
+    }
+    if (Number.isInteger(searchHistory[searchHistory.length - 1])) {
+        var orderNum = searchHistory.pop() + 1;
+    }
+    else {
+        var orderNum = 1;
+    }
+    var monsterIndex = searchHistory.findIndex(element => element.id === buttonEl.attr("data-id"));
+    searchHistory[monsterIndex].orderNum = orderNum;
+    searchHistory.push(orderNum);
     localStorage.setItem(JSON.stringify(searchHistory));
     buttonEl.remove();
 
@@ -34,3 +54,5 @@ var initiativeHandler = function(buttonEl) {
 }
 
 export { modalHandler, initiativeHandler }
+
+// work on saving order for initiative tracker
