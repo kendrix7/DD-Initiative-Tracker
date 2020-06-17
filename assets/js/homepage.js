@@ -47,90 +47,116 @@ $("#addplayerSubmit").click(function (event) {
     var statusEffectThree = $("#statusEffectThree").val();
 
     var loadplayerInfo = function () {
-        $("#playerInfo,#playerInfotwo").html("Player Name: " + "<u><b>"+ playerName + "</u></b>" + "    Player Class: " + "<u><b>"+ playerClass + "</u></b>" + "Player Race: " + "<u><b>"+ playerRace + "       "+ "</u></b>" + "         Player Health: " + "<u><b>"+ healthPoints);
+        $("#playerInfo,#playerInfotwo").html("Player Name: " + "<u><b>" + playerName + "</u></b>" + "    Player Class: " + "<u><b>" + playerClass + "</u></b>" + "Player Race: " + "<u><b>" + playerRace + "       " + "</u></b>" + "         Player Health: " + "<u><b>" + healthPoints);
 
     };
     loadplayerInfo();
 
 
-    var arrayForm = [playerName, playerClass,playerRace,healthPoints,strength,dexterity,intelligence,wisdom,constitution,charisma,weaponsOne,weaponsTwo,weaponsThree,weaponsFour,weaponsFive,weaponsSix,weaponsSeven,weaponsEight,spellOne,spellTwo,spellThree,spellFour,statusEffectOne,statusEffectTwo,statusEffectThree,statusEffectFour];
+    var arrayForm = [playerName, playerClass, playerRace, healthPoints, strength, dexterity, intelligence, wisdom, constitution, charisma, weaponsOne, weaponsTwo, weaponsThree, weaponsFour, weaponsFive, weaponsSix, weaponsSeven, weaponsEight, spellOne, spellTwo, spellThree, spellFour, statusEffectOne, statusEffectTwo, statusEffectThree, statusEffectFour];
 
     // var texttoEnter = arrayForm;
     var texttoEnterJSON = JSON.stringify(arrayForm);
     localStorage.setItem("addplayerSubmitLocalStorage", texttoEnterJSON);
     loadText();
 });
-    
-    
+
+
 // recall local storage
 var loadText = function () {
-    var texttoEnter = JSON.parse(localStorage.getItem("addplayerSubmitLocalStorage"));
+    texttoEnter = JSON.parse(localStorage.getItem("addplayerSubmitLocalStorage"));
     $("#inbox").html(texttoEnter[4]);
 };
 
-function getMonster(name) {
-    axios.get(queryURL + name)
-    .then (function(response) {
-        var monsterCardEl = document.createElement ('div');
-        monsterCardEl.classList = ('card monster-container');
-        monsterCardEl.setAttribute ('id', '');
-        monsterCardEl.dataset.id = id
 
-        var monsterContent = document.createElement ('div');
-        monsterContent.classList = ('card-content');
-        monsterCardEl.appendChild(monsterContent);
-
-        var monsterName = document.createElement('p');
-        monsterName.classList = ('card-title');
-        monsterName.innerText = 'Name: ' + response.data.name;
-        monsterCardEl.appendChild(monsterName);
-
-        var monsterHP = document.createElement('a');
-        monsterHP.classList = ('tooltipped btn');
-        // monsterHP.setAttribute ('href','#');
-        monsterHP.setAttribute('data-position', 'right');
-        monsterHP.setAttribute('data-tooltip', response.data.hit_points);
-        monsterHP.innerText = 'HP';
-        monsterCardEl.appendChild(monsterHP);
-
-        M.Tooltip.init(monsterHP);
-
-        // var hpDropdown = document.createElement('ul');
-        // hpDropdown.classList = ('dropdown-content');
-        // hpDropdown.setAttribute = ('id', 'dropdown1');
-        // monsterCardEl.appendChild(hpDropdown);
-
-        // var hpContent = document.createElement('li');
-        // hpDropdown.appendChild(hpContent);
-
-        // var hpAnchor = document.createElement('a');
-        // hpAnchor.setAttribute ('href', '#!');
-        // hpAnchor.innerText = response.data.hit_points;
-        // hpContent.appendChild(hpAnchor);
-
-        var monsterStats = document.createElement('a');
-        monsterStats.classList = ('tooltipped btn');
-        // monsterHP.setAttribute ('href','#');
-        monsterStats.setAttribute('data-position', 'right');
-        monsterStats.setAttribute('data-tooltip', 'STR: ' + response.data.strength +' | ' + 'DEX: ' + response.data.dexterity +' | ' + 'INT: ' + response.data.intelligence+' | ' + 'WIS: ' + response.data.wisdom+' | ' + 'CON: ' + response.data.constitution+' | ' + 'CHA: ' + response.data.charisma);
-        monsterStats.innerText = 'STATS';
-        monsterCardEl.appendChild(monsterStats);
-
-        M.Tooltip.init(monsterStats);
-
-        monsterContainerEl.appendChild(monsterCardEl);
-    }
-)}
 
 //initialize search for given monster name
-searchEl.addEventListener('click',function() {
-    id++
+searchEl.addEventListener('click', function () {
     var searchTerm = inputEl.value;
     getMonster(searchTerm);
-    var searchTermObj = {"id": id, "name": searchTerm, "orderNum": 0} // save an id with the name for persistency
-    searchHistory.push(searchTermObj);
-    localStorage.setItem('monster',JSON.stringify(searchHistory));
+    searchHistory.push(searchTerm);
+    localStorage.setItem('monster', JSON.stringify(searchHistory));
 });
+
+function getMonster(name) {
+    axios.get(queryURL + name)
+        .then(function (response) {
+            var monsterCardEl = document.createElement('div');
+            monsterCardEl.classList = ('card monsterList-container');
+
+            var monsterContent = document.createElement('div');
+            monsterContent.classList = ('card-content');
+            monsterCardEl.appendChild(monsterContent);
+
+            var monsterName = document.createElement('p');
+            monsterName.classList = ('card-title monsterName');
+            monsterName.innerText = response.data.name;
+            monsterCardEl.appendChild(monsterName);
+
+            var monsterInfo = document.createElement('p');
+            monsterInfo.classList = ('card-title monsterInfo');
+            monsterInfo.innerText = response.data.size + ' ' + response.data.type + ', ' + response.data.alignment;
+            monsterCardEl.appendChild(monsterInfo);
+
+            var monsterHP = document.createElement('a');
+            monsterHP.classList = ('tooltipped btn');
+            monsterHP.setAttribute('data-position', 'right');
+            monsterHP.setAttribute('data-tooltip', response.data.hit_points + ' (' + response.data.hit_dice + ')');
+            monsterHP.innerText = 'HP';
+            monsterCardEl.appendChild(monsterHP);
+
+            M.Tooltip.init(monsterHP);
+
+            var monsterSpeed = document.createElement('a');
+            monsterSpeed.classList = ('tooltipped btn');
+            monsterSpeed.setAttribute('data-position', 'right');
+            monsterSpeed.setAttribute('data-tooltip', response.data.speed);
+            monsterSpeed.innerText = 'Speed';
+            monsterCardEl.appendChild(monsterSpeed);
+
+            M.Tooltip.init(monsterSpeed);
+
+            // var hpDropdown = document.createElement('ul');
+            // hpDropdown.classList = ('dropdown-content');
+            // hpDropdown.setAttribute = ('id', 'dropdown1');
+            // monsterCardEl.appendChild(hpDropdown);
+
+            // var hpContent = document.createElement('li');
+            // hpDropdown.appendChild(hpContent);
+
+            // var hpAnchor = document.createElement('a');
+            // hpAnchor.setAttribute ('href', '#!');
+            // hpAnchor.innerText = response.data.hit_points;
+            // hpContent.appendChild(hpAnchor);
+
+            var monsterStats = document.createElement('a');
+            monsterStats.classList = ('tooltipped btn');
+            // monsterHP.setAttribute ('href','#');
+            monsterStats.setAttribute('data-position', 'right');
+            monsterStats.setAttribute('data-tooltip', 'STR: ' + response.data.strength + ' | ' + 'DEX: ' + response.data.dexterity + ' | ' + 'INT: ' + response.data.intelligence + ' | ' + 'WIS: ' + response.data.wisdom + ' | ' + 'CON: ' + response.data.constitution + ' | ' + 'CHA: ' + response.data.charisma);
+            monsterStats.innerText = 'STATS';
+            monsterCardEl.appendChild(monsterStats);
+
+            M.Tooltip.init(monsterStats);
+
+            monsterContainerEl.appendChild(monsterCardEl);
+        });
+}
+
+// generates content for the modal
+var modalHandler = function (playerEl) {
+    var playerContainerEl = $("#monsterList-container") // #monsterList-container needs to be switched to player
+    var playerList = playerContainerEl.find(".monsterName") || []; // .monsterName needs to be switched to player name
+    console.log(playerList);
+
+    // takes each player entered and makes their name into a button in the modal
+    playerList.each(function () {
+        var playerName = $(this).text().split(":")[1].trim();
+        var modalButtonEl = $("<a>").addClass("waves-effect waves-light btn").text(playerName);
+        var modalContentEl = $(".modal-content");
+        modalContentEl.append(modalButtonEl); // buttons don't generate with spacing... idk why.
+    });
+}
 
 $(document).ready(function () {
     $('.tooltipped').tooltip();
@@ -141,12 +167,9 @@ $(document).ready(function () {
 });
 
 $("#startBtn").click(function () {
-    modalHandler()
-    $(".modalButton").click(function () {
-        initiativeHandler($(this));
-    });
+    modalHandler($(this).html())
+});
 
-    $(document).ready(function(){
-        $('.tabs').tabs();
-    });
-})
+$(document).ready(function () {
+    $('.tabs').tabs();
+});
