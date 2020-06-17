@@ -1,4 +1,4 @@
-import { modalHandler, initiativeHandler } from "./modules/battleModal.js";
+import { modalHandler, initiativeHandler } from "./battleModal.js";
 
 var searchEl = document.getElementById('search-button');
 var searchHistory = JSON.parse(localStorage.getItem('monster')) || [];
