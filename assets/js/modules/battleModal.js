@@ -1,13 +1,13 @@
 // generates content for the modal
 var modalHandler = function () {
-    var playerContainerEl = $("#monsterList-container") // #monsterList-container needs to be switched to player
-    var playerList = playerContainerEl.find(".monster-container") || []; // .monsterName needs to be switched to player name
-    console.log(playerList);
+    var monsterContainerEl = $("#monsterList-container") // #monsterList-container needs to be switched to monster
+    var monsterList = monsterContainerEl.find(".monster-container") || []; // .monsterName needs to be switched to monster name
+    console.log(monsterList);
     
-    // takes each player entered and makes their name into a button in the modal
-    playerList.each(function() {
+    // takes each monster entered and makes their name into a button in the modal
+    monsterList.each(function() {
         //var i = 0;
-        var playerName = $(this).find(".card-title").text().split(":")[1].trim();
+        var monsterName = $(this).find(".card-title").text().split(":")[1].trim();
         //var monsterContainerList = $("#monsterList-container").find("#monster-container")
         //monsterContainerList.each(function() {
             //monsterContainerId = $(this).attr("data-id")
@@ -15,7 +15,7 @@ var modalHandler = function () {
         var monsterId = $(this).attr("data-id")
         var modalButtonEl = $("<a>")
             .addClass("waves-effect waves-light btn modalButton")
-            .text(playerName)
+            .text(monsterName)
             .attr("data-id", monsterId);
 
         var modalContentEl = $(".modal-content");
