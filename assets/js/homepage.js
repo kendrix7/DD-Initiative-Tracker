@@ -173,3 +173,7 @@ $("#startBtn").click(function () {
 $(document).ready(function () {
     $('.tabs').tabs();
 });
+
+  // Or with jQuery
+
+  $('.dropdown-trigger').dropdown();
