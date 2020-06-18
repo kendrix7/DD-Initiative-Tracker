@@ -1,5 +1,6 @@
 import { playerFormHandler } from "./modules/playerFormHandler.js"
 import { getMonster } from "./modules/getMonster.js"
+import { modalHandler} from "./modules/battleModal.js"
 
 var searchEl = document.getElementById('search-button');
 var searchHistory = JSON.parse(localStorage.getItem('monster')) || [];
@@ -20,7 +21,7 @@ else {
     var orderNum = 1;
 }
 
-$("#addplayerSubmit").click(function (event) {
+$("#addplayerSubmit").click(function () {
     playerFormHandler(event);
 });
 
@@ -54,6 +55,18 @@ $(document).ready(function () {
     $('.tabs').tabs();
 });
 
-  // Or with jQuery
 
-  $('.dropdown-trigger').dropdown();
+$('.dropdown-trigger').dropdown();
+
+$(".classOption").click(function() {
+    $("#playerClass").text($(this).text());
+})
+
+$(".raceOption").click(function() {
+    $("#playerRace").text($(this).text());
+})
+
+$(".statusOption").click(function() {
+    $("#playerStatus").text($(this).text());
+})
+
