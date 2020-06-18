@@ -19,6 +19,7 @@ function getMonster(name) {
             var queryURL = 'https://www.dnd5eapi.co/api/monsters/';
             var monsterCardEl = document.createElement('div');
             monsterCardEl.classList = ('card monsterList-container');
+            monsterCardEl.setAttribute('draggable', 'true');
 
             var monsterContent = document.createElement('div');
             monsterContent.classList = ('card-content');

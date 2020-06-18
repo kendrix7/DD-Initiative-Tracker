@@ -58,7 +58,7 @@ var playerFormHandler = function(event) {
     
     var rowEl = $("<div>").addClass("row");
     var colEl = $("<div>").addClass("col s12");
-    var cardEl = $("<div>").addClass("card blue-grey darken-1");
+    var cardEl = $("<div>").addClass("card blue-grey darken-1").attr('draggable', 'true');
     var cardContentEl = $("<div>").addClass("card-content white-text");
     var cardTitle = $("<span>").addClass("card-title").text(playerName).attr("id", playerName);
     var cardRaceClass = $("<p>").text();
