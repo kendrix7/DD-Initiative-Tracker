@@ -3,7 +3,10 @@ var nameSpot = document.getElementById('random-name');
 
 
 getName.addEventListener('click', function () {
-    setRandomName(nameSpot);
+    var searchName = nameSpot.value;
+    document.getElementById('random-name').innerHTML
+    setRandomName(searchName);
+    
 });
 
 function capFirst(string) {
@@ -25,7 +28,12 @@ function generateName() {
 }
 
 function setRandomName() {
-    var newName = generateName('random-name');
+    var newName = generateName(document.getElementById('random-name'));
     nameSpot = newName
-    console.log(newName);
+    putName();
 };
+
+function putName () {
+    document.getElementById('random-name').innerHTML = generateName();
+}
+
