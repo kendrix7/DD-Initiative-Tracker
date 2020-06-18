@@ -159,23 +159,24 @@
                     </div>
                 </div>
                 <div class="row s12">
-                    <div class="col s12 card small">
-                        <h6 id="playerInfo"></h6>
-        
-                        <ul class="tabs">
-                            <li class="tab col s3"><a href="#inbox">Stats</a></li>
-                            <li class="tab col s3"><a class="active" href="#unread">
-                                    Weapons</a></li>
-                            <li class="tab col s3"><a href="#outbox">
-                                    Spells</a></li>
-                            <li class="tab col s3"><a href="#sent">Conditions</a></li>
-                        </ul>
-        
-                        <div id="inbox" class="col s12">Statsvars</div>
-                        <div id="unread" class="col s12">Weaponsvars</div>
-                        <div id="outbox" class="col s12">Spellsvars</div>
-                        <div id="sent" class="col s12">Conditionsvars</div>
-                    </div>
+                    <div class="row">
+                        <div class="col s12">
+                          <div class="card blue-grey darken-1">
+                            <div class="card-content white-text">
+                              <span class="card-title">Player Card</span>
+                              <p>Dwarf Rogue</p>
+                              <p>HP: 25</p>
+                              <p>AC: 18</p>
+                            </div>
+                            <div class="card-action">
+                                <a class="btn tooltipped" data-position="bottom" data-tooltip="I am a tooltip">Spells</a>
+                                <a class="btn tooltipped" data-position="bottom" data-tooltip="I am a tooltip">Stats</a>
+                                <a class="btn tooltipped" data-position="bottom" data-tooltip="I am a tooltip">Weapons</a>
+                                <a class="btn tooltipped" data-position="bottom" data-tooltip="I am a tooltip">Status Effects</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                 </div>
             </div>
             
@@ -234,8 +235,8 @@
     <script src='https://unpkg.com/axios/dist/axios.min.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="./assets/js/homepage.js" type="module"></script>
-    <script src="./assets/js/modules/battleModal.js" type="module"></script>
-    <script src="./assets/js/modules/rex.js" type="module"></script>
+    <script src="./assets/js/modules/getMonster.js" type="module"></script>
+    <script src="./assets/js/modules/playerFormHandler.js" type="module"></script>
 </body>
 
 </html>
