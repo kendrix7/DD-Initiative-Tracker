@@ -5,12 +5,13 @@
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel='stylesheet' href='./assets/css/style.css'>
     <title>D&D Initiative Tracker</title>
 </head>
 
 <body>
     <header class="nav-wrapper">
-        <span class="brand-logo center">Dungeons & Dragons Initiative Tracker</span>
+        <h1><span class="brand-logo center">Dungeons & Dragons Initiative Tracker</span></h1>
     </header>
     <div class='container' id="container">
         <div class="row">
@@ -26,7 +27,7 @@
             <div id="monsterColumn" class="col s4">
                 <div class="row s12">
                     <div class='col s6' id='monsterList-container'>
-                        <h3>MONSTERS</h3>
+                        <h3 class='monsterHeading'>MONSTERS</h3>
                         <input id="monster-input" type="text" class="form-control" placeholder="Enter Monster Name"
                             aria-label="Enter Monster Name">
                         <div class="input-group-append">
@@ -42,7 +43,7 @@
             <div id="battleColumn target" class="col s4">
                 <div class="row s12">
                     <div class="col">
-                        <h3>BATTLE</h3>
+                        <h3 class='battleHeading'>BATTLE</h3>
                     </div>
                 </div>
             </div>
