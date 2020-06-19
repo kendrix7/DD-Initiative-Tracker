@@ -4,3 +4,30 @@
     padding-left: 1%;
     padding-right: 1%;
 }
+.shadow {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+:root {
+    --red: #FC0000;
+    --burgundy: #8C0A0A;
+    --orange: #FEA500;
+    --yellow: #FFFF00;
+    --white: #FFFFFF;
+    --gray: #808080;
+    --black: #010101;
+    --purple: #810081;
+    --light-purple: #DB70D6;
+    --light-blue: #87CEFA;
+    --dark-blue: #01008C;
+}
+.nav-wrapper {
+    background-color: var(--red);
+    text-align: center;
+    padding: .5% 1% 2% 1%;
+}
+.monsterHeading {
+    color: var(--purple);
+}
+.battleHeading {
+    color: var(--burgundy);
+}

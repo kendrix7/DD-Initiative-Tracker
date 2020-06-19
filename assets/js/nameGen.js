@@ -37,3 +37,6 @@ function putName () {
     document.getElementById('random-name').innerHTML = generateName();
 }
 
+
+
+
