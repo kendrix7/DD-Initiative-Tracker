@@ -37,6 +37,6 @@
 }
 
 body {
-    background-image: url("/assets/images/dndimage.jpg");
+    background-image: url("./assets/images/dndimage.jpg");
     background-size: cover;
 }
