@@ -1,11 +1,12 @@
+debugger;
 var playerFormHandler = function(event) {
     event.preventDefault();
 
     var playerName = $("#playerName").val();
     console.log(playerName);
     
-    var playerClass = $("#playerClass").val();
-    console.log(playerClass);
+    var playerClass = $("#playerClass")
+    console.log(playerClass.innerText);
     
     var playerRace = $("#playerRace").val();
     console.log(playerRace);
@@ -50,7 +51,6 @@ var playerFormHandler = function(event) {
     console.log(statusEffect);
 
     var playerCardContainer = $("#playerCardContainer")
-    console.log(playerCardContainer);
     
     var rowEl = $("<div>").addClass("row");
     var colEl = $("<div>").addClass("col s12");

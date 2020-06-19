@@ -4,14 +4,14 @@ $("#addplayerSubmit").click(function () {
 
 var playerFormHandler = function(event) {
     event.preventDefault();
-
+    debugger;
     var playerName = $("#playerName").val();
     console.log(playerName);
     
-    var playerClass = $("#playerClass").val();
+    var playerClass = $("#playerClass").text();
     console.log(playerClass);
     
-    var playerRace = $("#playerRace :selected").text();
+    var playerRace = $("#playerRace").text();
     console.log(playerRace);
     
     var healthPoints = $("#healthPoints").val();
@@ -50,7 +50,7 @@ var playerFormHandler = function(event) {
     var spellFour = $("#spellFour").val();
     console.log(spellFour);
     
-    var statusEffect = $("#statusEffect").val();
+    var statusEffect = $("#playerStatus").text();
     console.log(statusEffect);
 
     var playerCardContainer = $("#playerCardContainer")
@@ -61,7 +61,7 @@ var playerFormHandler = function(event) {
     var cardEl = $("<div>").addClass("card blue-grey darken-1").attr('draggable', 'true');
     var cardContentEl = $("<div>").addClass("card-content white-text");
     var cardTitle = $("<span>").addClass("card-title").text(playerName).attr("id", playerName);
-    var cardRaceClass = $("<p>").text();
+    var cardRaceClass = $("<p>").text(`${playerRace} ${playerClass}`);
     var cardHpInput = $('<input>').attr('placeholder', healthPoints);
     var cardAction = $("<div>").addClass("card-action");
     var cardHealthPoints = $("<a>").addClass("btn tooltipped").attr("data-position", "bottom").attr("data-tooltip", healthPoints).text("HP");
