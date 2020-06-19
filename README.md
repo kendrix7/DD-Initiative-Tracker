@@ -9,7 +9,6 @@ To track initiative... duh.
 - HTML
 - CSS 
 
-## Website
 
 ## Contributors
 
