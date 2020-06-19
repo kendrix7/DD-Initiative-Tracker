@@ -33,6 +33,10 @@ function getMonster(name) {
             monsterAttributes.innerText = 'Attributes: ' + response.data.size + ' ' + response.data.alignment;
             monsterCardEl.appendChild(monsterAttributes);
 
+            var monsterEditName = document.createElement('input');
+            monsterEditName.setAttribute('placeholder', "Unique Monster Name");
+            monsterCardEl.appendChild(monsterEditName);
+
             var monsterHpInput = document.createElement('input');
             monsterHpInput.setAttribute('placeholder', response.data.hit_points);
             monsterCardEl.appendChild(monsterHpInput);
