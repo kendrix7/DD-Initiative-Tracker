@@ -26,10 +26,14 @@
     padding: .5% 1% 2% 1%;
 }
 .monsterHeading {
-    color: var(--purple);
+    color: var(--white);
 }
 .battleHeading {
-    color: var(--burgundy);
+    color: var(--white);
+}
+
+.playerHeading {
+    color: var(--white)
 }
 
 body {
