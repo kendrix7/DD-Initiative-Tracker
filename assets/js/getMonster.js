@@ -16,7 +16,7 @@ function getMonster(name) {
     axios.get(queryURL + name)
         .then(function(response) {
             var monsterCardEl = document.createElement('div');
-            monsterCardEl.classList = ('card');
+            monsterCardEl.classList = ('card draggable');
 
 
             var monsterContent = document.createElement('div');
@@ -78,6 +78,17 @@ function getMonster(name) {
             M.Tooltip.init(monsterSpeed);
 
             monsterContainerEl.appendChild(monsterCardEl);
+
+            $(".column").sortable({
+                revert: true, 
+                connectWith: $(".column")
+            })
+            
+            
+            $(".draggable").draggable({
+                revert: "invalid",
+                connectToSortable: ".column"
+            })
         });
 }
 
