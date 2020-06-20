@@ -38,6 +38,7 @@ This program will allow the Dungeon Master to set up the players and the monster
 - Materialize
 - D&D 5e API
 - UZBY API
+- Google Fonts
 
 ## Screenshots
 ![Schedule Screenshot]()

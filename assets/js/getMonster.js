@@ -65,7 +65,7 @@ function getMonster(name) {
             monsterArmorClass.classList = ('tooltipped btn');
             monsterArmorClass.setAttribute('data-position', 'right');
             monsterArmorClass.setAttribute('data-tooltip', response.data.armor_class);
-            monsterArmorClass.innerText = 'Armor Class';
+            monsterArmorClass.innerText = 'Armor';
             monsterCardEl.appendChild(monsterArmorClass);
 
             M.Tooltip.init(monsterArmorClass);
