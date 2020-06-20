@@ -21,7 +21,9 @@
     --dark-blue: #01008C;
 }
 .nav-wrapper {
-    background-color: var(--red);
+    background-color: var(--clear);
+    font-weight: bold;
+    text-shadow: 0 0 10px white, 0 0 10px red;;
     text-align: center;
     padding: .5% 1% 2% 1%;
 }
@@ -37,6 +39,6 @@
 }
 
 body {
-    background-image: url("/assets/images/dndimage.jpg");
+    background-image: url("../images/dndimage.png");
     background-size: cover;
 }
