@@ -4,59 +4,25 @@ $("#addplayerSubmit").click(function () {
 
 var playerFormHandler = function(event) {
     event.preventDefault();
-    debugger;
     var playerName = $("#playerName").val();
-    console.log(playerName);
-    
     var playerClass = $("#playerClass").text();
-    console.log(playerClass);
-    
     var playerRace = $("#playerRace").text();
-    console.log(playerRace);
-    
     var healthPoints = $("#healthPoints").val();
-    console.log(healthPoints);
-    
     var strength = $("#strength").val();
-    console.log(strength);
-    
     var dexterity = $("#dexterity").val();
-    console.log(dexterity);
-    
     var intelligence = $("#intelligence").val();
-    console.log(intelligence);
-    
     var wisdom = $("#wisdom").val();
-    console.log(wisdom);
-    
     var constitution = $("#constitution").val();
-    console.log(constitution);
-    
     var charisma = $("#charisma").val();
-    console.log(charisma);
-    
     var weapon = $("#weapon").val();
-    console.log(weapon);
-    
     var spellOne = $("#spellOne").val();
-    console.log(spellOne);
-    
     var spellTwo = $("#spellTwo").val();
-    console.log(spellTwo);
-    
     var spellThree = $("#spellThree").val();
-    console.log(spellThree);
-    
     var spellFour = $("#spellFour").val();
-    console.log(spellFour);
-    
     var statusEffect = $("#playerStatus").text();
-    console.log(statusEffect);
-
     var playerCardContainer = $("#playerCardContainer")
-    console.log(playerCardContainer);
     
-    var rowEl = $("<div>").addClass("row");
+    var rowEl = $("<div>").addClass("row").attr("id", "draggable");
     var colEl = $("<div>").addClass("col s12");
     var cardEl = $("<div>").addClass("card blue-grey darken-1").attr('draggable', 'true');
     var cardContentEl = $("<div>").addClass("card-content white-text");
@@ -125,6 +91,16 @@ var playerFormHandler = function(event) {
     // var texttoEnterJSON = JSON.stringify(arrayForm);
     // localStorage.setItem("addplayerSubmitLocalStorage", texttoEnterJSON);
     // loadText();
+    $("#battleColumn").sortable({
+        revert: true
+    })
+    
+    
+    $("#draggable").draggable({
+        connectToSortable: "#battleColumn", 
+        revert: "invalid"
+    })
+    
 }
 
 
