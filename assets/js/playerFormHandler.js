@@ -22,7 +22,7 @@ var playerFormHandler = function(event) {
     var statusEffect = $("#playerStatus").text();
     var playerCardContainer = $("#playerCardContainer")
     
-    var rowEl = $("<div>").addClass("row").attr("id", "draggable");
+    var rowEl = $("<div>").addClass("row draggable");
     var colEl = $("<div>").addClass("col s12");
     var cardEl = $("<div>").addClass("card blue-grey darken-1").attr('draggable', 'true');
     var cardContentEl = $("<div>").addClass("card-content white-text");
@@ -91,14 +91,15 @@ var playerFormHandler = function(event) {
     // var texttoEnterJSON = JSON.stringify(arrayForm);
     // localStorage.setItem("addplayerSubmitLocalStorage", texttoEnterJSON);
     // loadText();
-    $("#battleColumn").sortable({
-        revert: true
+    $(".column").sortable({
+        revert: true, 
+        connectWith: $(".column")
     })
     
     
-    $("#draggable").draggable({
-        connectToSortable: "#battleColumn", 
-        revert: "invalid"
+    $(".draggable").draggable({
+        revert: "invalid",
+        connectToSortable: ".column"
     })
     
 }
