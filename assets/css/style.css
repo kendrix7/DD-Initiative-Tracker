@@ -44,9 +44,12 @@ body {
     font-family: chalkduster;
 }
 
+#playerColumn {
+    border-right: 5px solid;
+}
+
 #monsterColumn {
     border-right: 5px solid;
-    border-left: 5px solid;
 }
 
 header p {
@@ -64,19 +67,44 @@ button {
 
 .name-box {
     margin: 50px 600px;
-    box-shadow: 0 0 10px gold, 0 0 50px darkorange, 0 0 75px red;
+    box-shadow: inset 0 0 10px gold, 0 0 50px darkorange, inset 0 0 75px red;
     padding: none;
 }
 
-.inner-name-box {
+.player-card {
+    background: linear-gradient(darkred, darkorange);
+    box-shadow: 0 0 10px gold;
+}
+
+.monster-card {
+    background: linear-gradient(white, black);
+    box-shadow: 0 0 10px gold;
+    padding: 15px;
+}
+ 
+.monster-card .card-content {
     padding: 0 !important;
 }
 
-.inner-name-box div {
-    margin: 0;
-    padding: 0;
+.monster-card .btn {
+    margin: 15px 15px auto;
+    background: white;
+    box-shadow: 0 0 20px 0px white, inset 0 0 20px 0px black;
+    color: black;
 }
 
 #playerContainer, #monsterContainer, #battleContainer{
     height: 20rem
+}
+
+.player-card .btn {
+    margin: 15px 15px auto;
+    background: darkred;
+    box-shadow: 0 0 20px 0px black, inset 0 0 20px 0px white;
+    color: white;
+}
+
+input {
+    font-family: fantasy;
+    font-weight: bold;
 }

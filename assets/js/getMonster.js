@@ -16,7 +16,7 @@ function getMonster(name) {
     axios.get(queryURL + name)
         .then(function(response) {
             var monsterCardEl = document.createElement('div');
-            monsterCardEl.classList = ('card draggable');
+            monsterCardEl.classList = ('card monster-card draggable');
 
 
             var monsterContent = document.createElement('div');
@@ -25,20 +25,22 @@ function getMonster(name) {
 
             var monsterName = document.createElement('p');
             monsterName.classList = ('card-title monsterName');
-            monsterName.innerText = 'Name: ' + response.data.name;
+            monsterName.innerText = response.data.name;
             monsterCardEl.appendChild(monsterName);
 
             var monsterAttributes = document.createElement('p');
-            monsterAttributes.classList = ('card-title monsterAttributes');
-            monsterAttributes.innerText = 'Attributes: ' + response.data.size + ' ' + response.data.alignment;
+            monsterAttributes.classList = (' monsterAttributes');
+            monsterAttributes.innerText = response.data.size + ', ' + response.data.alignment;
             monsterCardEl.appendChild(monsterAttributes);
 
             var monsterEditName = document.createElement('input');
+            monsterEditName.classList = ('center');
             monsterEditName.setAttribute('placeholder', "Unique Monster Name");
             monsterCardEl.appendChild(monsterEditName);
 
             var monsterHpInput = document.createElement('input');
-            monsterHpInput.setAttribute('placeholder', response.data.hit_points);
+            monsterHpInput.classList = ('center');
+            monsterHpInput.setAttribute('placeholder', 'HP: ' + response.data.hit_points);
             monsterCardEl.appendChild(monsterHpInput);
 
             var monsterHP = document.createElement('a');
@@ -71,7 +73,7 @@ function getMonster(name) {
             var monsterSpeed = document.createElement('a');
             monsterSpeed.classList = ('tooltipped btn');
             monsterSpeed.setAttribute('data-position', 'right');
-            monsterSpeed.setAttribute('data-tooltip', 'WALK:' + response.data.speed.walk);
+            monsterSpeed.setAttribute('data-tooltip', response.data.speed.walk);
             monsterSpeed.innerText = 'Speed';
             monsterCardEl.appendChild(monsterSpeed);
 

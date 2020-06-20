@@ -30,11 +30,11 @@ var playerFormHandler = function(event) {
 
     var rowEl = $("<div>").addClass("row draggable");
     var colEl = $("<div>").addClass("col s12");
-    var cardEl = $("<div>").addClass("card blue-grey darken-1").attr('draggable', 'true');
+    var cardEl = $("<div>").addClass("card player-card").attr('draggable', 'true');
     var cardContentEl = $("<div>").addClass("card-content white-text");
     var cardTitle = $("<span>").addClass("card-title").text(playerName).attr("id", playerName);
     var cardRaceClass = $("<p>").text(`${playerRace} ${playerClass}`);
-    var cardHpInput = $('<input>').attr('placeholder', healthPoints);
+    var cardHpInput = $('<input>').addClass('center').attr('placeholder', 'HP: ' + healthPoints);
     var cardAction = $("<div>").addClass("card-action");
     var cardHealthPoints = $("<a>").addClass("btn tooltipped").attr("data-position", "bottom").attr("data-tooltip", healthPoints).text("HP");
     var cardSpellButton = $("<a>").addClass("btn tooltipped").attr("data-position", "bottom").attr("data-tooltip", `${spellOne}, ${spellTwo}, ${spellThree}, ${spellFour}`).text("Spells");
