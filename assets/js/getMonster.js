@@ -1,10 +1,8 @@
 var searchEl = document.getElementById('search-button');
 var searchHistory = JSON.parse(localStorage.getItem('monster')) || [];
 var inputEl = document.getElementById('monster-input');
-var monsterContainerEl = document.getElementById('monsterColumn')
+var monsterContainerEl = document.getElementById('monsterColumn');
 var queryURL = 'https://www.dnd5eapi.co/api/monsters/';
-console.log(searchHistory);
-
 searchEl.addEventListener('click', function() {
     var searchTerm = inputEl.value;
     getMonster(searchTerm);
@@ -79,19 +77,43 @@ function getMonster(name) {
 
             M.Tooltip.init(monsterSpeed);
 
-            monsterContainerEl.appendChild(monsterCardEl);
+            battleBtnHandler(monsterCardEl);
+            
+            monsterContainerEl.append(monsterCardEl);
 
-            $(".column").sortable({
-                revert: true, 
-                connectWith: $(".column")
-            })
+            // $(".column").sortable({
+            //     revert: true, 
+            //     connectWith: $(".column")
+            // })
             
             
-            $(".draggable").draggable({
-                revert: "invalid",
-                connectToSortable: ".column"
+            // $(".draggable").draggable({
+            //     revert: "invalid",
+            //     connectToSortable: ".column"
+            // })
+            $(".battleBtn").off();
+            $(".battleBtn").on("click", function () {
+
+                if ($(this).parents("#playerColumn").html() || $(this).parents("#monsterColumn").html()) {
+                    $(this).closest(".draggable").appendTo("#battleContainer");
+                    $(this).text("Remove");
+                }
+                else if ($(this).parents("#battleColumn").html()) {
+                    if ($(this).parents(".player-card").html()) {
+                        $(this).closest(".draggable").appendTo("#playerContainer");
+                        $(this).text("Battle!")
+                    }
+                    else if ($(this).parents(".monster-card").html()) {
+                        $(this).closest(".draggable").appendTo("#monsterContainer");
+                        $(this).text("Battle!")
+                    }
+                   
+                }
             })
+
+            
         });
 }
+
 
 // export { getMonster };
