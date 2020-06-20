@@ -12,11 +12,11 @@
 * [Contact](#contact)
 
 ## Contributors
-John Nielsen
-Jacob Corum
-Graham Gibbs
-Jeremy Rice
-Rex Wilson
+- John Nielsen
+- Jacob Corum
+- Graham Gibbs
+- Jeremy Rice
+- Rex Wilson
 
 ## General Info
 This program will allow the Dungeon Master to set up the players and the monsters with their respective stats enabling better tracking during the campaign. After the cards are created, the Dungeon Master is able to drag the needed players/monsters into the battle column when they are needed in battle. You are also able to randomly create a unique name for each created monster.
