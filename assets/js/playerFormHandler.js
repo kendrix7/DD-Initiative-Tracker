@@ -1,9 +1,13 @@
 $("#addplayerSubmit").click(function () {
     playerFormHandler(event);
 });
-var playerContainerEl = $("<div>").addClass("row s12");
-var monsterContainerEl = $("<div>").addClass("row s12");
-var battleContainerEl = $("<div>").addClass("row s12");
+var playerContainerEl = $("<div>").addClass("row s12 column").attr("id", "playerContainer");
+var monsterContainerEl = $("<div>").addClass("row s12 column").attr("id", "monsterContainer");
+var battleContainerEl = $("<div>").addClass("row s12 column").attr("id", "battleContainer");
+$("#playerColumn .row.s12.center").append(playerContainerEl);
+$("#monsterColumn .row.s12.center").append(monsterContainerEl);
+$("#battleColumn .row.s12.center").append(battleContainerEl);
+
 
 var playerFormHandler = function(event) {
     event.preventDefault();
@@ -23,8 +27,6 @@ var playerFormHandler = function(event) {
     var spellThree = $("#spellThree").val();
     var spellFour = $("#spellFour").val();
     var statusEffect = $("#playerStatus").text();
-    var playerCardContainer = $("#playerCardContainer")
-    
 
     var rowEl = $("<div>").addClass("row draggable");
     var colEl = $("<div>").addClass("col s12");
@@ -46,7 +48,7 @@ var playerFormHandler = function(event) {
     cardEl.append(cardContentEl);
     colEl.append(cardEl);
     rowEl.append(colEl);
-    playerCardContainer.append(rowEl);
+    playerContainerEl.append(rowEl);
 
 
     $(document).ready(function () {
@@ -98,13 +100,13 @@ var playerFormHandler = function(event) {
     // localStorage.setItem("addplayerSubmitLocalStorage", texttoEnterJSON);
     // loadText();
     $(".column").sortable({
-        revert: true, 
-        connectWith: $(".column")
+        connectWith: $(".column"), 
+        helper: "clone", 
+        tolerance: "pointer"
     })
     
-    
     $(".draggable").draggable({
-        revert: "invalid",
+        helper: "clone", 
         connectToSortable: ".column"
     })
     
