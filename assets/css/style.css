@@ -23,7 +23,7 @@
 .nav-wrapper {
     background-color: var(--clear);
     font-weight: bold;
-    text-shadow: 0 0 15px white, 0 0 10px red;;
+    text-shadow: 0 0 5px white, 0 0 10px darkorange, 0 0 15px red;;
     text-align: center;
     padding: .5% 1% 2% 1%;
 }
@@ -60,4 +60,19 @@ header p {
 button {
     font-family: fantasy;
     box-shadow: 0 0 20px white;
+}
+
+.name-box {
+    margin: 50px 600px;
+    box-shadow: 0 0 10px gold, 0 0 50px darkorange, 0 0 75px red;
+    padding: none;
+}
+
+.inner-name-box {
+    padding: 0 !important;
+}
+
+.inner-name-box div {
+    margin: 0;
+    padding: 0;
 }
