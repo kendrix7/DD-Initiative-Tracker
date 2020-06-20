@@ -42,8 +42,9 @@ var playerFormHandler = function(event) {
     var cardWeapon = $("<a>").addClass("btn tooltipped").attr("data-position", "bottom").attr("data-tooltip", weapon).text("Weapon");
     var cardStatusEffect = $("<a>").addClass("btn tooltipped").attr("data-position", "bottom").attr("data-tooltip", statusEffect).text("Status");
     
+    var cardButton = $("<button>").addClass("btn playerBattleBtn").text("Send to Battle!");
 
-    cardAction.append(cardHealthPoints, cardSpellButton, cardStatsButton, cardWeapon, cardStatusEffect);
+    cardAction.append(cardHealthPoints, cardSpellButton, cardStatsButton, cardWeapon, cardStatusEffect, cardButton);
     cardContentEl.append(cardTitle, cardRaceClass, cardHpInput, cardAction);
     cardEl.append(cardContentEl);
     colEl.append(cardEl);
@@ -110,6 +111,10 @@ var playerFormHandler = function(event) {
         connectToSortable: ".column"
     })
     
+    $(".playerBattleBtn").on("click", function() {
+        $(this).closest(".row.draggable").appendTo("#battleContainer");
+        $(this).text("Remove From Battle");
+    })
 }
 
 
