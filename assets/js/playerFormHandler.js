@@ -1,6 +1,9 @@
 $("#addplayerSubmit").click(function () {
     playerFormHandler(event);
 });
+var playerContainerEl = $("<div>").addClass("row s12");
+var monsterContainerEl = $("<div>").addClass("row s12");
+var battleContainerEl = $("<div>").addClass("row s12");
 
 var playerFormHandler = function(event) {
     event.preventDefault();
@@ -22,6 +25,7 @@ var playerFormHandler = function(event) {
     var statusEffect = $("#playerStatus").text();
     var playerCardContainer = $("#playerCardContainer")
     
+
     var rowEl = $("<div>").addClass("row draggable");
     var colEl = $("<div>").addClass("col s12");
     var cardEl = $("<div>").addClass("card blue-grey darken-1").attr('draggable', 'true');
@@ -35,6 +39,7 @@ var playerFormHandler = function(event) {
     var cardStatsButton = $("<a>").addClass("btn tooltipped").attr("data-position", "bottom").attr("data-tooltip", `${strength}, ${dexterity}, ${intelligence}, ${wisdom}, ${constitution}, ${charisma}`).text("Stats");
     var cardWeapon = $("<a>").addClass("btn tooltipped").attr("data-position", "bottom").attr("data-tooltip", weapon).text("Weapon");
     var cardStatusEffect = $("<a>").addClass("btn tooltipped").attr("data-position", "bottom").attr("data-tooltip", statusEffect).text("Status");
+    
 
     cardAction.append(cardHealthPoints, cardSpellButton, cardStatsButton, cardWeapon, cardStatusEffect);
     cardContentEl.append(cardTitle, cardRaceClass, cardHpInput, cardAction);
@@ -42,6 +47,7 @@ var playerFormHandler = function(event) {
     colEl.append(cardEl);
     rowEl.append(colEl);
     playerCardContainer.append(rowEl);
+
 
     $(document).ready(function () {
         $('.tooltipped').tooltip();
