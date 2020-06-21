@@ -47,8 +47,8 @@ async function nameGen () {
                 'Access-Control-Request-Headers': '*'
                 
             },
-            mode: 'cors'
-
+            mode: 'cors',
+            cache: 'reload'
           
             
         })
@@ -58,7 +58,8 @@ async function nameGen () {
             console.log(data)
         nameSpot.innerHTML = data 
         });
-}
+};
+
 
 
 //fetch('http://example.com/movies.json')
