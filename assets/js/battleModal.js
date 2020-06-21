@@ -1,16 +1,11 @@
 // generates content for the modal
 var modalHandler = function () {
-    var monsterContainerEl = $("#monsterList-container") // #monsterList-container needs to be switched to monster
-    var monsterList = monsterContainerEl.find(".monster-container") || []; // .monsterName needs to be switched to monster name
+    var monsterContainerEl = $("#monsterList-container") 
+    var monsterList = monsterContainerEl.find(".monster-container") || []; 
     
     // takes each monster entered and makes their name into a button in the modal
     monsterList.each(function() {
-        //var i = 0;
         var monsterName = $(this).find(".card-title").text().split(":")[1].trim();
-        //var monsterContainerList = $("#monsterList-container").find("#monster-container")
-        //monsterContainerList.each(function() {
-            //monsterContainerId = $(this).attr("data-id")
-        //})
         var monsterId = $(this).attr("data-id")
         var modalButtonEl = $("<a>")
             .addClass("waves-effect waves-light btn modalButton")
@@ -18,7 +13,7 @@ var modalHandler = function () {
             .attr("data-id", monsterId);
 
         var modalContentEl = $(".modal-content");
-        modalContentEl.append(modalButtonEl); // buttons don't generate with spacing... idk why.
+        modalContentEl.append(modalButtonEl); 
     });
 }
 
@@ -67,9 +62,6 @@ $("#startBtn").click(function () {
 $(document).ready(function () {
     $('.tabs').tabs();
 });
-
-
-// $('.dropdown-trigger').dropdown();
 
 $(".classOption").click(function() {
     $("#playerClass").text($(this).text());
