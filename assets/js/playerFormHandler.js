@@ -87,28 +87,6 @@ var playerFormHandler = function (event) {
         $("#playerStatus").text($(this).text());
     })
 
-    // var loadplayerInfo = function () {
-    //     $("#playerInfo,#playerInfotwo").html("Player Name: " + "<u><b>" + playerName + "</u></b>" + "    Player Class: " + "<u><b>" + playerClass + "</u></b>" + "Player Race: " + "<u><b>" + playerRace + "       " + "</u></b>" + "         Player Health: " + "<u><b>" + healthPoints);
-
-    // };
-    // loadplayerInfo();
-
-    // var loadText = function () {
-    //     texttoEnter = JSON.parse(localStorage.getItem("addplayerSubmitLocalStorage"));
-    //     $("#inbox").html(texttoEnter[4]);
-    // };
-
-    // var arrayForm = [playerName, playerClass, playerRace, healthPoints, strength, dexterity, intelligence, wisdom, constitution, charisma, weaponsOne, weaponsTwo, weaponsThree, weaponsFour, weaponsFive, weaponsSix, weaponsSeven, weaponsEight, spellOne, spellTwo, spellThree, spellFour, statusEffectOne, statusEffectTwo, statusEffectThree, statusEffectFour];
-
-    // // var texttoEnter = arrayForm;
-    // var texttoEnterJSON = JSON.stringify(arrayForm);
-    // localStorage.setItem("addplayerSubmitLocalStorage", texttoEnterJSON);
-    // loadText();
-    // $(".column").sortable({
-    //     connectWith: $(".column"),
-    //     helper: "clone",
-    //     tolerance: "pointer"
-    // })
     $(".battleBtn").off("click");
     $(".battleBtn").on("click", function () {
         if ($(this).parents("#playerColumn").html() || $(this).parents("#monsterColumn").html()) {

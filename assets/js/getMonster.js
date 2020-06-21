@@ -3,7 +3,7 @@ var searchHistory = JSON.parse(localStorage.getItem('monster')) || [];
 var inputEl = document.getElementById('monster-input');
 var monsterContainerEl = document.getElementById('monsterColumn');
 var queryURL = 'https://www.dnd5eapi.co/api/monsters/';
-searchEl.addEventListener('click', function() {
+searchEl.addEventListener('click', function () {
     var searchTerm = inputEl.value;
     getMonster(searchTerm);
     searchHistory.push(searchTerm);
@@ -12,7 +12,7 @@ searchEl.addEventListener('click', function() {
 
 function getMonster(name) {
     axios.get(queryURL + name)
-        .then(function(response) {
+        .then(function (response) {
             var monsterCardEl = document.createElement('div');
             monsterCardEl.classList = ('card monster-card draggable col s12 center');
 
@@ -78,9 +78,9 @@ function getMonster(name) {
             M.Tooltip.init(monsterSpeed);
 
             battleBtnHandler(monsterCardEl);
-            
+
             monsterContainerEl.append(monsterCardEl);
-            
+
             $(".battleBtn").off();
             $(".battleBtn").on("click", function () {
 
@@ -97,13 +97,10 @@ function getMonster(name) {
                         $(this).closest(".draggable").appendTo("#monsterContainer");
                         $(this).text("Battle!")
                     }
-                   
+
                 }
             })
 
-            
+
         });
 }
-
-
-// export { getMonster };
