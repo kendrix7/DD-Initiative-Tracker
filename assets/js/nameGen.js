@@ -10,6 +10,8 @@ getName.addEventListener('click', function () {
     
 });
 
+// KEEPING MANUAL NAME GENERATION IN CASE OF API NOT WORKING
+
 // function capFirst(string) {
 //     return string.charAt(0).toUpperCase() + string.slice(1);
 // }
