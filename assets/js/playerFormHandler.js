@@ -4,9 +4,9 @@ $("#addplayerSubmit").click(function () {
 var playerContainerEl = $("<ul>").addClass("row s12 contain").attr("id", "playerContainer");
 var monsterContainerEl = $("<ul>").addClass("row s12 contain").attr("id", "monsterContainer");
 var battleContainerEl = $("<ul>").addClass("row s12 contain").attr("id", "battleContainer");
-$("#playerColumn .row.s12.center").append(playerContainerEl);
-$("#monsterColumn .row.s12.center").append(monsterContainerEl);
-$("#battleColumn .row.s12.center").append(battleContainerEl);
+$("#playerColumn .row").append(playerContainerEl);
+$("#monsterColumn .row").append(monsterContainerEl);
+$("#battleColumn .row").append(battleContainerEl);
 
 $(".contain").sortable({
     connectWith: $(".contain"),
@@ -35,7 +35,7 @@ var playerFormHandler = function (event) {
 
     var rowEl = $("<li>").addClass("row draggable");
     var colEl = $("<div>").addClass("col s12");
-    var cardEl = $("<div>").addClass("card player-card").attr('draggable', 'true');
+    var cardEl = $("<div>").addClass("card player-card s12").attr('draggable', 'true');
     var cardContentEl = $("<div>").addClass("card-content white-text");
     var cardTitle = $("<span>").addClass("card-title").text(playerName).attr("id", playerName);
     var cardRaceClass = $("<p>").text(`${playerRace} ${playerClass}`);

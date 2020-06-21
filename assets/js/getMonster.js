@@ -14,7 +14,7 @@ function getMonster(name) {
     axios.get(queryURL + name)
         .then(function(response) {
             var monsterCardEl = document.createElement('div');
-            monsterCardEl.classList = ('card monster-card draggable');
+            monsterCardEl.classList = ('card monster-card draggable col s12 center');
 
 
             var monsterContent = document.createElement('div');

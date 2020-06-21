@@ -47,12 +47,16 @@ body {
 }
 
 #playerColumn {
-    border-right: 5px solid;
+    /* border-right: 5px solid; */
 }
 
 #monsterColumn {
-    border-right: 5px solid;
+    /* border-right: 5px solid; */
 }
+
+/* #monsterContainer:empty {
+    display: none;
+} */
 
 header p {
     font-size: 2rem;
@@ -97,7 +101,7 @@ button {
     background: white;
     box-shadow: 0 0 20px 0px white, inset 0 0 20px 0px black;
     color: black;
-    width: 25%;
+    width: 35%;
 }
 
 #playerContainer, #monsterContainer, #battleContainer{
@@ -116,4 +120,10 @@ button {
 input {
     font-family: fantasy, bitter;
     font-weight: bold;
+}
+
+#monsterContainer, #playerContainer, #battleContainer {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
 }
