@@ -27,7 +27,7 @@ This program will allow the Dungeon Master to set up the players and the monster
  - Both the Player and Monster Cards will append to the bottom of the column, allowing you to create as many cards as needed.
  - Inside the cards, you can hover over each respective button to enable the 'Tooltips' function, showing the information assigned to that button.
  - Also inside the card, the starting HP is populated into an input field, allowing the DM to update the HP throughout the compaign.
- - As the campaign progresses and battles happen, the DM is able to drag the associated player/monster cards into the battle column in the order that the initiative is set (manually done with dice by the players).
+ - As the campaign progresses and battles happen, the DM is able to drag the associated player/monster cards into the battle column in the order that the initiative is set (manually done with dice by the players). You may also just hit the "BATTLE" button at the bottom of each card to make the card move to the battle column.
  - The DM is able to generate a unique monster name with the 'Name Generator' at the bottom of the page just by clicking the 'Generate a Name' button. They can then copy and paste that name onto the Monster Card.
 
 ## Tools Used
@@ -41,14 +41,16 @@ This program will allow the Dungeon Master to set up the players and the monster
 - Google Fonts
 
 ## Screenshots
-![Schedule Screenshot]()
+![DD Screenshot](assets/images/ddscreenshot1.png)
+![DD Screenshot](assets/images/ddscreenshot1.png)
+
 
 ## Status
-Project is: _under construction_
+Project is: _complete_(for now)
 
 ## Links
-Live Page Link - 
-Respository Link - 
+Live Page Link - https://johnnielsen1221.github.io/dd-initiative-tracker/
+Respository Link - https://github.com/JohnNielsen1221/dd-initiative-tracker
 
 ## Contact
 John Hayes Nielsen - johnhayesnielsen@gmail.com

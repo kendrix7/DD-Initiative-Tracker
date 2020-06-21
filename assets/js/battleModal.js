@@ -1,10 +1,10 @@
 // generates content for the modal
 var modalHandler = function () {
-    var monsterContainerEl = $("#monsterList-container") 
-    var monsterList = monsterContainerEl.find(".monster-container") || []; 
-    
+    var monsterContainerEl = $("#monsterList-container")
+    var monsterList = monsterContainerEl.find(".monster-container") || [];
+
     // takes each monster entered and makes their name into a button in the modal
-    monsterList.each(function() {
+    monsterList.each(function () {
         var monsterName = $(this).find(".card-title").text().split(":")[1].trim();
         var monsterId = $(this).attr("data-id")
         var modalButtonEl = $("<a>")
@@ -13,12 +13,12 @@ var modalHandler = function () {
             .attr("data-id", monsterId);
 
         var modalContentEl = $(".modal-content");
-        modalContentEl.append(modalButtonEl); 
+        modalContentEl.append(modalButtonEl);
     });
 }
 
 // on click of buttons in modal removes that button and formats <p> in .modal-content
-var initiativeHandler = function(buttonEl) {
+var initiativeHandler = function (buttonEl) {
     // remove button clicked, save to list
     var searchHistory = JSON.parse(localStorage.getItem("monster")) || [];
     if (!searchHistory.length) {
@@ -47,6 +47,8 @@ var initiativeHandler = function(buttonEl) {
     $(".modal-content p").text(modalContent);
 }
 
+$('.dropdown-trigger').dropdown();
+
 $(document).ready(function () {
     $('.tooltipped').tooltip();
 });
@@ -63,14 +65,14 @@ $(document).ready(function () {
     $('.tabs').tabs();
 });
 
-$(".classOption").click(function() {
+$(".classOption").click(function () {
     $("#playerClass").text($(this).text());
 })
 
-$(".raceOption").click(function() {
+$(".raceOption").click(function () {
     $("#playerRace").text($(this).text());
 })
 
-$(".statusOption").click(function() {
+$(".statusOption").click(function () {
     $("#playerStatus").text($(this).text());
 })

@@ -56,6 +56,8 @@ var playerFormHandler = function (event) {
 
     battleBtnHandler(cardContentEl);
 
+    M.Dropdown.init(playerFormHandler);
+
     $(document).ready(function () {
         $('.tooltipped').tooltip();
     });

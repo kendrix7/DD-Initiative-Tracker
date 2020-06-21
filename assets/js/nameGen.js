@@ -5,9 +5,9 @@ var queryURL2 = 'https://uzby.com/api.php?min=3&max=8'
 
 getName.addEventListener('click', function () {
     var searchName = nameSpot.value;
-    
+
     nameGen(searchName);
-    
+
 });
 
 // KEEPING MANUAL NAME GENERATION IN CASE OF API NOT WORKING
@@ -41,24 +41,24 @@ getName.addEventListener('click', function () {
 // };
 
 
-async function nameGen () {
+async function nameGen() {
     await fetch(proxyURL + queryURL2, {
-            method: 'GET', 
-            headers: {
-                'Content-Type': 'application/json',
-                'Access-Control-Request-Headers': '*'
-                
-            },
-            mode: 'cors',
-            cache: 'reload'
-          
-            
-        })
-       
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Request-Headers': '*'
+
+        },
+        mode: 'cors',
+        cache: 'reload'
+
+
+    })
+
         .then(response => response.text())
         .then(data => {
             console.log(data)
-        nameSpot.innerHTML = data 
+            nameSpot.innerHTML = data
         });
 };
 
