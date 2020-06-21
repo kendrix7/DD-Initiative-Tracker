@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang='en'>
+
 <head>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
@@ -8,6 +9,7 @@
     <title>D&D Initiative Tracker</title>
     
 </head>
+
 <body>
     <header class="nav-wrapper">
         <h1><span class="brand-logo center">Dungeons & Dragons Initiative Tracker</span></h1>
@@ -19,8 +21,7 @@
                 <div class="row s12 center">
                     <h3 class="playerHeading center">PLAYERS</h3>
 
-                    <button data-target="modal1" class="waves-effect waves-light black white-text modal-trigger"
-                        id="startBtn">Add Player</button>
+                    <button data-target="modal1" class="waves-effect waves-light black white-text modal-trigger" id="startBtn">Add Player</button>
                 </div>
             </div>
             <div id="monsterColumn" class="col s4 center">
@@ -43,6 +44,17 @@
             </div>
         </div>
     </div>
+
+    <!-- <div class="row">
+                    <div class="col s8 card small">
+                       <h1 id="playerTest"></h1>
+                       <div>
+                       </div>
+                    </div>
+                 </div> -->
+
+    </div>
+
     <div id="modal1" class="modal">
         <div class="modal-content">
             <div class="row s12 m12 card blue-grey darken-1">
@@ -61,7 +73,10 @@
                                 <input placeholder="Empty" id="healthPoints" type="text" class="validate">
                                 <label for="healthPoints">Health Points</label>
                             </div>
+
+
                         </div>
+
                         <div class="row">
                             <h6>Character Statistics</h6>
                             <div class="row">
@@ -69,35 +84,44 @@
                                     <input placeholder="Empty" id="strength" type="text" class="validate">
                                     <label for="strength">Strength</label>
                                 </div>
+
                                 <div class="input-field col s4">
                                     <input placeholder="Empty" id="dexterity" type="text" class="validate">
                                     <label for="dexterity">Dexterity</label>
                                 </div>
+
                                 <div class="input-field col s4">
                                     <input placeholder="Empty" id="intelligence" type="text" class="validate">
                                     <label for="intelligence">Intelligence</label>
                                 </div>
                             </div>
+
                             <div class="row">
                                 <div class="input-field col s4">
                                     <input placeholder="Empty" id="wisdom" type="text" class="validate">
                                     <label for="wisdom">Wisdom</label>
                                 </div>
+
                                 <div class="input-field col s4">
                                     <input placeholder="Empty" id="constitution" type="text" class="validate">
                                     <label for="constitution">Constitution</label>
                                 </div>
+
                                 <div class="input-field col s4">
                                     <input placeholder="Empty" id="charisma" type="text" class="validate">
                                     <label for="charisma">Charisma</label>
                                 </div>
                             </div>
+
                         </div>
+
                         <div class="row">
                             <!-- Dropdown Trigger -->
+
                             <div class="col s6">
                                 <a id="playerClass" class='dropdown-trigger btn' href='#'
                                     data-target='dropdown1'>Class</a>
+
                                 <!-- Dropdown Structure -->
                                 <ul id='dropdown1' class='dropdown-content'>
                                     <li><a class="classOption" href="#!">Barbarian</a></li>
@@ -114,9 +138,12 @@
                                     <li><a class="classOption" href="#!">Wizard</a></li>
                                 </ul>
                             </div>
+
+
                             <div class="col s6">
                                 <a id="playerRace" class='dropdown-trigger btn' href='#'
                                     data-target='dropdown2'>Race</a>
+
                                 <!-- Dropdown Structure -->
                                 <ul id='dropdown2' class='dropdown-content'>
                                     <li><a class="raceOption" id='playerRace' href="#!">Dwarf</a></li>
@@ -130,11 +157,14 @@
                                     <li><a class="raceOption" href="#!">Tiefling</a></li>
                                 </ul>
                             </div>
+
                         </div>
                         <div class="row">
+
                             <div class="col s12">
                                 <a id="playerStatus" class='dropdown-trigger btn' href='#'
                                     data-target='dropdown3'>Status Effects</a>
+
                                 <!-- Dropdown Structure -->
                                 <ul id='dropdown3' class='dropdown-content'>
                                     <li><a class="statusOption" href="#!">Blinded</a></li>
@@ -161,6 +191,7 @@
                                 <label for="spellOne">Weapon</label>
                             </div>
                         </div>
+
                         <div class="row">
                             <h6>Spells</h6>
                             <div class="input-field row s2 m3">
@@ -180,12 +211,16 @@
                                 <label for="spellFour">Spell IV</label>
                             </div>
                         </div>
+
                     </div>
                     <a id="addplayerSubmit" class="modal-close waves-effect waves-light btn black">submit</a>
                 </div>
             </div>
         </div>
     </div>
+    </div>
+    </div>
+
     <div class="row name-box">
         <div class="col s12 inner-name-box">
             <div class="card transparent darken-1">
@@ -194,15 +229,14 @@
                     <p class='center' id="random-name"></p>
                 </div>
                 <div class="card-action center">
+
                     <button class='white' id="generate">Generate a Name</button>
-]                </div>
+
+                </div>
             </div>
         </div>
     </div>
-    <div>
-        <p></p>
-        <button id='testButton'>Name</button>
-    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script
@@ -212,6 +246,39 @@
     <script src="./assets/js/getMonster.js"></script>
     <script src="./assets/js/playerFormHandler.js"></script>
     <script src="./assets/js/battleModal.js"></script>
+    <!--<script src="./assets/js/dragdrop.js"></script>-->
     <script src="./assets/js/nameGen.js"></script>
+
 </body>
+
 </html>
+
+
+<!-- <article>
+    <div class="card m-5 shadow" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Maertin Daggerhelm</h5>
+          <p class="card-text">Dwarf Rogue</p>
+          <a tabindex="0" class="waves-effect waves-light btn-small" role="button" data-toggle="popover" data-trigger="focus" title="Health Points" data-content="42">HP</a>
+          <a tabindex="0" class="waves-effect waves-light btn-small" role="button" data-toggle="popover" data-trigger="focus" title="Character Statistics" data-content="Str: +1, Dex: +3, Int: +0, Wis: +1, Con: +1, Cha: +3">Stats</a>
+          <a tabindex="0" class="waves-effect waves-light btn-small" role="button" data-toggle="popover" data-trigger="focus" title="Weapons on Hand" data-content="Dagger, Light-Crossbow">Weapons</a>
+          <a tabindex="0" class="waves-effect waves-light btn-small" role="button" data-toggle="popover" data-trigger="focus" title="Spells" data-content="Lights, Prestidigitation">Spells</a>
+          <a tabindex="0" class="waves-effect waves-light btn-small" role="button" data-toggle="popover" data-trigger="focus" title="Status Effects" data-content="Prone, Charmed">Conditions</a>
+        </div>
+        
+      </div>
+</article> -->
+
+<!-- <div class='col s6' id='monsterList-container'>
+    <h1>MONSTERS</h1>
+    <input id="monster-input" type="text" class="form-control" placeholder="Enter Monster Name" aria-label="Enter Monster Name">
+        <div class="input-group-append">
+            <button class="btn btn-primary" type="button" id="search-button">
+                Add Monster
+            </button>
+        </div>
+    </input> 
+       
+</div>
+</div>
+</div> -->
