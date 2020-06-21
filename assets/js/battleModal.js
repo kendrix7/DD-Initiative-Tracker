@@ -69,7 +69,7 @@ $(document).ready(function () {
 });
 
 
-$('.dropdown-trigger').dropdown();
+// $('.dropdown-trigger').dropdown();
 
 $(".classOption").click(function() {
     $("#playerClass").text($(this).text());

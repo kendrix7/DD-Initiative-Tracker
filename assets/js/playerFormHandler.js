@@ -1,8 +1,20 @@
 $("#addplayerSubmit").click(function () {
     playerFormHandler(event);
 });
+var playerContainerEl = $("<ul>").addClass("row s12 contain").attr("id", "playerContainer");
+var monsterContainerEl = $("<ul>").addClass("row s12 contain").attr("id", "monsterContainer");
+var battleContainerEl = $("<ul>").addClass("row s12 contain").attr("id", "battleContainer");
+$("#playerColumn .row.s12.center").append(playerContainerEl);
+$("#monsterColumn .row.s12.center").append(monsterContainerEl);
+$("#battleColumn .row.s12.center").append(battleContainerEl);
 
-var playerFormHandler = function(event) {
+$(".contain").sortable({
+    connectWith: $(".contain"),
+    scroll: true,
+    helper: "clone"
+})
+
+var playerFormHandler = function (event) {
     event.preventDefault();
     var playerName = $("#playerName").val();
     var playerClass = $("#playerClass").text();
@@ -20,9 +32,8 @@ var playerFormHandler = function(event) {
     var spellThree = $("#spellThree").val();
     var spellFour = $("#spellFour").val();
     var statusEffect = $("#playerStatus").text();
-    var playerCardContainer = $("#playerCardContainer")
-    
-    var rowEl = $("<div>").addClass("row").attr("id", "draggable");
+
+    var rowEl = $("<li>").addClass("row draggable");
     var colEl = $("<div>").addClass("col s12");
     var cardEl = $("<div>").addClass("card player-card").attr('draggable', 'true');
     var cardContentEl = $("<div>").addClass("card-content white-text");
@@ -41,66 +52,84 @@ var playerFormHandler = function(event) {
     cardEl.append(cardContentEl);
     colEl.append(cardEl);
     rowEl.append(colEl);
-    playerCardContainer.append(rowEl);
+    playerContainerEl.append(rowEl);
+
+    battleBtnHandler(cardContentEl);
 
     $(document).ready(function () {
         $('.tooltipped').tooltip();
     });
-    
+
     $(document).ready(function () {
         $('.modal').modal();
     });
-    
+
     $("#startBtn").click(function () {
         modalHandler($(this).html())
     });
-    
+
     $(document).ready(function () {
         $('.tabs').tabs();
     });
-    
-    
+
+
     $('.dropdown-trigger').dropdown();
-    
-    $(".classOption").click(function() {
+
+    $(".classOption").click(function () {
         $("#playerClass").text($(this).text());
     })
-    
-    $(".raceOption").click(function() {
+
+    $(".raceOption").click(function () {
         $("#playerRace").text($(this).text());
     })
-    
-    $(".statusOption").click(function() {
+
+    $(".statusOption").click(function () {
         $("#playerStatus").text($(this).text());
     })
 
     // var loadplayerInfo = function () {
     //     $("#playerInfo,#playerInfotwo").html("Player Name: " + "<u><b>" + playerName + "</u></b>" + "    Player Class: " + "<u><b>" + playerClass + "</u></b>" + "Player Race: " + "<u><b>" + playerRace + "       " + "</u></b>" + "         Player Health: " + "<u><b>" + healthPoints);
-    
+
     // };
     // loadplayerInfo();
-    
+
     // var loadText = function () {
     //     texttoEnter = JSON.parse(localStorage.getItem("addplayerSubmitLocalStorage"));
     //     $("#inbox").html(texttoEnter[4]);
     // };
-    
+
     // var arrayForm = [playerName, playerClass, playerRace, healthPoints, strength, dexterity, intelligence, wisdom, constitution, charisma, weaponsOne, weaponsTwo, weaponsThree, weaponsFour, weaponsFive, weaponsSix, weaponsSeven, weaponsEight, spellOne, spellTwo, spellThree, spellFour, statusEffectOne, statusEffectTwo, statusEffectThree, statusEffectFour];
-    
+
     // // var texttoEnter = arrayForm;
     // var texttoEnterJSON = JSON.stringify(arrayForm);
     // localStorage.setItem("addplayerSubmitLocalStorage", texttoEnterJSON);
     // loadText();
-    $("#battleColumn").sortable({
-        revert: true
+    // $(".column").sortable({
+    //     connectWith: $(".column"),
+    //     helper: "clone",
+    //     tolerance: "pointer"
+    // })
+    $(".battleBtn").off("click");
+    $(".battleBtn").on("click", function () {
+        if ($(this).parents("#playerColumn").html() || $(this).parents("#monsterColumn").html()) {
+            $(this).closest(".row.draggable").appendTo("#battleContainer");
+            $(this).text("Remove");
+        }
+        else if ($(this).parents("#battleColumn").html()) {
+            if ($(this).parents(".player-card").html()) {
+                $(this).closest(".draggable").appendTo("#playerContainer");
+                $(this).text("Battle!")
+            }
+            else if ($(this).parents(".monster-card").html()) {
+                $(this).closest(".row.draggable").appendTo("#monsterContainer");
+                $(this).text("Battle!")
+            }
+
+        }
     })
-    
-    
-    $("#draggable").draggable({
-        connectToSortable: "#battleColumn", 
-        revert: "invalid"
-    })
-    
 }
 
+var battleBtnHandler = function (card) {
+    $("<button>").addClass("btn battleBtn").text("Battle!").appendTo(card);
+}
 
