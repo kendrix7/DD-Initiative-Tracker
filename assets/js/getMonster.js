@@ -80,17 +80,7 @@ function getMonster(name) {
             battleBtnHandler(monsterCardEl);
             
             monsterContainerEl.append(monsterCardEl);
-
-            // $(".column").sortable({
-            //     revert: true, 
-            //     connectWith: $(".column")
-            // })
             
-            
-            // $(".draggable").draggable({
-            //     revert: "invalid",
-            //     connectToSortable: ".column"
-            // })
             $(".battleBtn").off();
             $(".battleBtn").on("click", function () {
 

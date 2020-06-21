@@ -1,13 +1,18 @@
 $("#addplayerSubmit").click(function () {
     playerFormHandler(event);
 });
-var playerContainerEl = $("<div>").addClass("row s12 column").attr("id", "playerContainer");
-var monsterContainerEl = $("<div>").addClass("row s12 column").attr("id", "monsterContainer");
-var battleContainerEl = $("<div>").addClass("row s12 column").attr("id", "battleContainer");
+var playerContainerEl = $("<ul>").addClass("row s12 contain").attr("id", "playerContainer");
+var monsterContainerEl = $("<ul>").addClass("row s12 contain").attr("id", "monsterContainer");
+var battleContainerEl = $("<ul>").addClass("row s12 contain").attr("id", "battleContainer");
 $("#playerColumn .row.s12.center").append(playerContainerEl);
 $("#monsterColumn .row.s12.center").append(monsterContainerEl);
 $("#battleColumn .row.s12.center").append(battleContainerEl);
 
+$(".contain").sortable({
+    connectWith: $(".contain"),
+    scroll: true,
+    helper: "clone"
+})
 
 var playerFormHandler = function (event) {
     event.preventDefault();
@@ -28,7 +33,7 @@ var playerFormHandler = function (event) {
     var spellFour = $("#spellFour").val();
     var statusEffect = $("#playerStatus").text();
 
-    var rowEl = $("<div>").addClass("row draggable");
+    var rowEl = $("<li>").addClass("row draggable");
     var colEl = $("<div>").addClass("col s12");
     var cardEl = $("<div>").addClass("card player-card").attr('draggable', 'true');
     var cardContentEl = $("<div>").addClass("card-content white-text");
@@ -104,11 +109,6 @@ var playerFormHandler = function (event) {
     //     helper: "clone",
     //     tolerance: "pointer"
     // })
-
-    // $(".draggable").draggable({
-    //     helper: "clone",
-    //     connectToSortable: ".column"
-    // })
     $(".battleBtn").off("click");
     $(".battleBtn").on("click", function () {
         if ($(this).parents("#playerColumn").html() || $(this).parents("#monsterColumn").html()) {
@@ -124,13 +124,12 @@ var playerFormHandler = function (event) {
                 $(this).closest(".row.draggable").appendTo("#monsterContainer");
                 $(this).text("Battle!")
             }
-           
+
         }
     })
 }
 
-var battleBtnHandler = function(card) {
+var battleBtnHandler = function (card) {
     $("<button>").addClass("btn battleBtn").text("Battle!").appendTo(card);
 }
-
 
