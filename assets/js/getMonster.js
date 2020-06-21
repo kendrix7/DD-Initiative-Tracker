@@ -4,7 +4,7 @@ var inputEl = document.getElementById('monster-input');
 var monsterContainerEl = document.getElementById('monsterColumn');
 var queryURL = 'https://www.dnd5eapi.co/api/monsters/';
 searchEl.addEventListener('click', function () {
-    var searchTerm = inputEl.value;
+    var searchTerm = inputEl.value.toLowerCase();
     getMonster(searchTerm);
     searchHistory.push(searchTerm);
     localStorage.setItem('monster', JSON.stringify(searchHistory));
