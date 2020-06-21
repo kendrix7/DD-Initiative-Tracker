@@ -2,7 +2,6 @@
 var modalHandler = function () {
     var monsterContainerEl = $("#monsterList-container") // #monsterList-container needs to be switched to monster
     var monsterList = monsterContainerEl.find(".monster-container") || []; // .monsterName needs to be switched to monster name
-    console.log(monsterList);
     
     // takes each monster entered and makes their name into a button in the modal
     monsterList.each(function() {
@@ -70,7 +69,7 @@ $(document).ready(function () {
 });
 
 
-$('.dropdown-trigger').dropdown();
+// $('.dropdown-trigger').dropdown();
 
 $(".classOption").click(function() {
     $("#playerClass").text($(this).text());
