@@ -3,12 +3,60 @@ var searchHistory = JSON.parse(localStorage.getItem('monster')) || [];
 var inputEl = document.getElementById('monster-input');
 var monsterContainerEl = document.getElementById('monsterColumn');
 var queryURL = 'https://www.dnd5eapi.co/api/monsters/';
+
 searchEl.addEventListener('click', function () {
     var searchTerm = inputEl.value.toLowerCase();
     getMonster(searchTerm);
+    newMonsterSearch(searchTerm);
     searchHistory.push(searchTerm);
     localStorage.setItem('monster', JSON.stringify(searchHistory));
 });
+
+async function getMonsterFromAPI(monsterName) {
+    let monster = await axios.get(queryURL + monsterName);
+    return monster;
+};
+
+function getMonsterCardsFromLocalstorage() {
+    let monsterCards = JSON.parse(localStorage.getItem("monsterCards"));
+    console.log('in get from local', monsterCards);
+    return monsterCards;
+};
+
+function putMonsterCardsInLocalstorage(monsterCardsArray) {
+    localStorage.setItem("monsterCards", JSON.stringify(monsterCardsArray));
+};
+
+function createMonsterCardObj(monsterResponse) {
+    let monsterCard = {
+        name: monsterResponse.data.name,
+        givenName: "",
+        size: monsterResponse.data.size,
+        alignment: monsterResponse.data.alignment,
+        hit_points: monsterResponse.data.hit_points,
+        strength: monsterResponse.data.strength,
+        dexterity: monsterResponse.data.dexterity,
+        intelligence: monsterResponse.data.intelligence,
+        wisdom: monsterResponse.data.wisdom,
+        charisma: monsterResponse.data.charisma,
+        armor_class: monsterResponse.data.armor_class,
+        speed: monsterResponse.data.speed.walk
+    };
+    return monsterCard;
+};
+
+// async function saveOneMonster(monsterCardData) {
+
+// }
+
+async function newMonsterSearch(searchTerm) {
+    let monsterCardsArray = getMonsterCardsFromLocalstorage() || [];
+    console.log('=== monster cards array ===\n', monsterCardsArray);
+    let newMonster = await getMonsterFromAPI(searchTerm);
+    let newMonsterCardData = await createMonsterCardObj(newMonster);
+    monsterCardsArray.push(newMonsterCardData);
+    localStorage.setItem("monsterCards", JSON.stringify(monsterCardsArray));
+};
 
 function getMonster(name) {
     axios.get(queryURL + name)
@@ -77,7 +125,8 @@ function getMonster(name) {
 
             M.Tooltip.init(monsterSpeed);
 
-            battleBtnHandler(monsterCardEl);
+            // TODO: what is this supposed to do?
+            // battleBtnHandler(monsterCardEl);
 
             monsterContainerEl.append(monsterCardEl);
 
@@ -103,4 +152,4 @@ function getMonster(name) {
 
 
         });
-}
+};
