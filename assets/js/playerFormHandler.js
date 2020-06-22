@@ -16,7 +16,7 @@ $(".contain").sortable({
 })
 
 var createPlayerCard = function (playerData) {
-    if (playerData.isplayer) {
+    if (playerData.isPlayer) {
         var rowEl = $("<li>").addClass("row draggable");
         var colEl = $("<div>").addClass("col s12");
         var cardEl = $("<div>").addClass("card player-card s12").attr('draggable', 'true');
@@ -67,7 +67,7 @@ var createOldPlayerCard = function () {
                 "spellThree": player.spellThree,
                 "spellFour": player.spellFour,
                 "statusEffect": player.statusEffect,
-                "isplayer": true
+                "isPlayer": true
             }
             createPlayerCard(playerData);
         }
@@ -121,7 +121,6 @@ var createNewPlayerCard = function () {
 
 var playerFormHandler = function (event) {
     event.preventDefault();
-    debugger;
     createNewPlayerCard()
 
     M.Dropdown.init(playerFormHandler);
